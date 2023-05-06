@@ -1,0 +1,9 @@
+#C output files
+/output
+
+# Visual Studio Configurations
+.vscode
+
+#Annoying files
+.DS_Store
+DS_Store
