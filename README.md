@@ -15,7 +15,7 @@ The student management system must have a menu-based user interface that allows 
 
 # License
 
-This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhaym**", and I don't allow any one who don't have the permissions from me "**Rhaym**" to copy-and-past any part from this code because this is a personal work made for a scholar project
+This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhaym**" and covered under **Apache License**, and I don't allow any one who don't have the permissions from me "**Rhaym**" to copy-and-past any part from this code because this is a personal work made for a scholar project
 
 Permissions levels:
 
