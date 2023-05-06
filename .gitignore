@@ -1,5 +1,6 @@
-#C output files
+#C output and database files
 /output
+/database
 
 # Visual Studio Configurations
 .vscode
