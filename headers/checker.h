@@ -11,6 +11,7 @@ bool check(enum type Something, ...) {
 
   char* str;
   int num;
+  double moy;
   char *at;
   char *dot;
 
@@ -22,6 +23,7 @@ bool check(enum type Something, ...) {
     break;
 
     case isEmail:
+        str = va_arg(args, char*);
         at = strchr(str, '@');
         if (!at) {
             return false; //! '@' not found
@@ -36,8 +38,8 @@ bool check(enum type Something, ...) {
     break;
 
     case avg:
-      num = va_arg(args, int);
-      return num >= 0 && num <= 20;
+      moy = va_arg(args, double);
+      return moy >= 0.0 && moy <= 20.0;
     break;
 
     case age:

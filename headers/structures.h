@@ -12,7 +12,7 @@ typedef struct {
 } module;
 
 typedef struct {
-    int id;
+    long long int id;
     char nom[MAX_NAME_LEN];
     char prenom[MAX_NAME_LEN];
     char adresse[MAX_ADDRESS_LEN];

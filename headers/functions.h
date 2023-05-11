@@ -1,5 +1,6 @@
-#include <structures.h>
-#include <checker.h>
+#include "structures.h"
+#include "checker.h"
+#include <ncurses.h>    
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,9 +43,10 @@ void studentInput(student *e) {
 
 
 void addStudent() {
+    clear();
     int nb_students = 0;
-    printf("How many students to add: ");
-    scanf("%d", &nb_students);
+    printw("How many students to add: ");
+    scanw("%d", &nb_students);
     char directory[] = "database/";
     char filename[500];
 
@@ -55,14 +57,14 @@ void addStudent() {
     }
 
     for (int i = 0; i < nb_students; i++){
-        printf("Enter student n° %d data: \n", i+1);
+        printw("Enter student n° %d data: \n", i+1);
         studentInput(&students[i]);
 
         sprintf(filename, "%s%s_%s.txt", directory, students[i].nom, students[i].prenom);
 
         FILE* fp = fopen(filename, "w");
         if(fp == NULL) {
-            printf("Error: could not create file for %s\n", students[i].nom);
+            printw("Error: could not create file for %s\n", students[i].nom);
             continue;
         }
         fprintf(fp, "| ID: %llu\n", students[i].id);
@@ -72,11 +74,11 @@ void addStudent() {
         fprintf(fp, "| Email: %s\n", students[i].email);
         fprintf(fp, "| Age: %d\n", students[i].age);
         fclose(fp);
-        printf("Student data saved in %s\n", filename);
+        printw("Student data saved in %s\n", filename);
     }
 }
 
-void display_students();
+void displayStudent();
 
 
 void search_database(char* name_or_lastname) {
@@ -93,24 +95,25 @@ void search_database(char* name_or_lastname) {
                 strcat(filename, ent->d_name);
                 file = fopen(filename, "r");
                 if (file) {
-                    printf("File %s:\n", filename);
+                    printw("File %s:\n", filename);
                     char line[256];
                     while (fgets(line, sizeof(line), file)) {
-                        printf("%s", line);
+                        printw("%s", line);
                     }
                     fclose(file);
                 } else {
-                    printf("Error opening file %s\n", filename);
+                    printw("Error opening file %s\n", filename);
                 }
             }
         }
         closedir(dir);
     } else {
-        printf("Error opening database directory\n");
+        printw("Error opening database directory\n");
     }
 }
 
-void search_student() {
+void searchStudent() {
+    clear();
     char target[200];
     printw("Enter Student's name or lastname: ");
     scanf(" %[^\n]", target);
@@ -119,6 +122,6 @@ void search_student() {
     
 };
 
-void update_student();
-void delete_student();
-void calculate_average();
+void updateStudent();
+void deleteStudent();
+void caculateAverage();

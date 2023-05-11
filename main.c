@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "headers/functions.h"
-#include <ncurses/ncurses.h>
+#include "headers/functions.h"
+#include <ncurses.h>
 #include <locale.h>
+
+#define NUMBUTTONS 6
 
 int main() {
 
-    //setlocale(LC_ALL, ""); //? Support Non-Ascii characters for most Unix-Like terminals
+    setlocale(LC_ALL, ""); //? Support Non-Ascii characters for most Unix-Like terminals
     // Initialize ncurses screen
-    initscr();
+    initscr(); 
     cbreak();
     keypad(stdscr, TRUE);
     curs_set(0);
@@ -65,8 +67,7 @@ int main() {
     refresh();
 
     // Create buttons
-    const int num_buttons = 6;
-    char* button_labels[num_buttons] = {
+    char *button_labels[6] = {
         "Add Students",
         "Display Students",
         "Search Students",
@@ -75,9 +76,9 @@ int main() {
         "Average Calculator"
     };
     int current_button = 0;
-    WINDOW* button_wins[num_buttons];
-    for (int i = 0; i < num_buttons; i++) {
-        button_wins[i] = subwin(mainwin, 3, 20, max_y/2 + i*3 - num_buttons*3/2, max_x/2 - 10);
+    WINDOW* button_wins[NUMBUTTONS];
+    for (int i = 0; i < NUMBUTTONS; i++) {
+        button_wins[i] = subwin(mainwin, 3, 20, max_y/2 + i*3 - NUMBUTTONS*3/2, max_x/2 - 10);
         wbkgd(button_wins[i], COLOR_PAIR(1));
         box(button_wins[i], 0, 0);
         mvwprintw(button_wins[i], 1, 1, button_labels[i]);
@@ -93,24 +94,25 @@ int main() {
             case KEY_DOWN:
                 wbkgd(button_wins[current_button], COLOR_PAIR(1));
                 wrefresh(button_wins[current_button]);
-                current_button = (current_button + 1) % num_buttons;
+                current_button = (current_button + 1) % NUMBUTTONS;
                 wbkgd(button_wins[current_button], COLOR_PAIR(2));
                 wrefresh(button_wins[current_button]);
                 break;
             case KEY_UP:
                 wbkgd(button_wins[current_button], COLOR_PAIR(1));
                 wrefresh(button_wins[current_button]);
-                current_button = (current_button - 1 + num_buttons) % num_buttons;
+                current_button = (current_button - 1 + NUMBUTTONS) % NUMBUTTONS;
                 wbkgd(button_wins[current_button], COLOR_PAIR(2));
                 wrefresh(button_wins[current_button]);
                 break;
             case '\n':
+                clear();
                 if (current_button == 0) {
-                    //add_student();
+                    addStudent();
                 } else if (current_button == 1) {
                     //display_students();
                 } else if (current_button == 2) {
-                    //search_student();
+                    searchStudent();
                 } else if (current_button == 3) {
                     //update_student();
                 } else if (current_button == 4) {
@@ -128,7 +130,7 @@ int main() {
     }
 
     //* Clean up
-    for (int i = 0; i < num_buttons; i++) {
+    for (int i = 0; i < NUMBUTTONS; i++) {
         delwin(button_wins[i]);
     }
     delwin(mainwin);
