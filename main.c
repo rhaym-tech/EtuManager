@@ -33,15 +33,15 @@ int main() {
     const char* btn = "Press Enter to Continue";
     int title_len = strlen(title);
     int btn_len = strlen(btn);
-
-    mvwprintw(welcome_win, max_y/2 - 11, max_x/2 - 39, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
-    mvwprintw(welcome_win, max_y/2 - 10, max_x/2 - 39, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
-    mvwprintw(welcome_win, max_y/2 - 9, max_x/2 - 39,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
-    mvwprintw(welcome_win, max_y/2 - 8, max_x/2 - 39,  "██╔══╝     ██║   ██║   ██║ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗\n");
-    mvwprintw(welcome_win, max_y/2 - 7, max_x/2 - 39,  "███████╗   ██║   ╚██████╔╝ ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║\n");
-    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 39,  "╚══════╝   ╚═╝    ╚═════╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝\n");
+    
+    mvwprintw(welcome_win, max_y/2 - 11, max_x/2 - 45, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
+    mvwprintw(welcome_win, max_y/2 - 10, max_x/2 - 45, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
+    mvwprintw(welcome_win, max_y/2 - 9, max_x/2 - 45,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
+    mvwprintw(welcome_win, max_y/2 - 8, max_x/2 - 45,  "██╔══╝     ██║   ██║   ██║ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗\n");
+    mvwprintw(welcome_win, max_y/2 - 7, max_x/2 - 45,  "███████╗   ██║   ╚██████╔╝ ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║\n");
+    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 45,  "╚══════╝   ╚═╝    ╚═════╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝\n");
     wattron(welcome_win, A_BOLD | A_REVERSE);
-    (welcome_win, max_y/2 - 2, max_x/2 - title_len/2, "%s", title);
+    mvwprintw(welcome_win, max_y/2 - 2, max_x/2 - title_len/2, "%s", title);
     wattroff(welcome_win, A_BOLD | A_REVERSE);
     wattron(welcome_win, A_BOLD | A_BLINK);
     mvwprintw(welcome_win, max_y/2 + 0, max_x/2 - btn_len/2, "%s", btn);
