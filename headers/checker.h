@@ -1,7 +1,5 @@
-#include <string.h>
-#include <ctype.h>
-#include <stdbool.h>
-#include <stdarg.h>
+#include "includes.h" //? The file wchich includes all required libraries to work.
+
 
 enum type {isAlpha, isEmail, coef, avg, age};
 
