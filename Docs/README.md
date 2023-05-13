@@ -25,7 +25,7 @@ An awesome student management system that allows a school or university to track
 This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhaym**" and covered under **Apache License**, and I don't allow any one who don't have the permissions from me "**Rhaym**" to copy-and-past any part from this code because this is a personal work made for a scholar project
 {% endhint %}
 
-**Project License:** [Apache License 2.0](LICENSE)
+**Project License:** [Apache License 2.0](../LICENSE)
 
 ## Quick links
 

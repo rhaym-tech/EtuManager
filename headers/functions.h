@@ -114,8 +114,10 @@ void searchStudent() {
     char target[200];
     printw("Enter Student's name or lastname: ");
     scanw(" %[^\n]", target);
+    scanw(" %[^\n]", target);
     printw("\n\n");
     search_database(target);
+    refresh();
     refresh();
 };
 
