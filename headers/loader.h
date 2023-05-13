@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-#include "includes.h" //? The file wchich includes all required libraries to work.
-=======
-#include <ncurses.h>
-#include <stdlib.h>
-#include <string.h>
->>>>>>> 5e3ce1aff47bf4c2db394f23b1540ef6d37fcd61
+#include "includes.h" //? The file which includes all required libraries to work.
 #include "structures.h"
 
 void load(const char* name, student *e) {

@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "headers/functions.h"
-#include <ncurses.h>
-#include <locale.h>
+#include "headers/includes.h" //? The file wchich includes all required libraries to work.
+#include "headers/functions.h" //? Local library contains many functions for this project.
 
 #define NUMBUTTONS 6
 
@@ -34,13 +30,14 @@ int main() {
     const char* btn = "Press Enter to Continue";
     int title_len = strlen(title);
     int btn_len = strlen(btn);
-    
-    mvwprintw(welcome_win, max_y/2 - 11, max_x/2 - 45, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
-    mvwprintw(welcome_win, max_y/2 - 10, max_x/2 - 45, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
-    mvwprintw(welcome_win, max_y/2 - 9, max_x/2 - 45,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
-    mvwprintw(welcome_win, max_y/2 - 8, max_x/2 - 45,  "██╔══╝     ██║   ██║   ██║ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗\n");
-    mvwprintw(welcome_win, max_y/2 - 7, max_x/2 - 45,  "███████╗   ██║   ╚██████╔╝ ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║\n");
-    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 45,  "╚══════╝   ╚═╝    ╚═════╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝\n");
+
+    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 45, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
+    mvwprintw(welcome_win, max_y/2 - 5, max_x/2 - 45, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
+    mvwprintw(welcome_win, max_y/2 - 4, max_x/2 - 45,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
+    mvwprintw(welcome_win, max_y/2 - 3, max_x/2 - 45,  "██╔══╝     ██║   ██║   ██║ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗\n");
+    mvwprintw(welcome_win, max_y/2 - 2, max_x/2 - 45,  "███████╗   ██║   ╚██████╔╝ ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║\n");
+    mvwprintw(welcome_win, max_y/2 - 1, max_x/2 - 45,  "╚══════╝   ╚═╝    ╚═════╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝\n");
+
     wattron(welcome_win, A_BOLD | A_REVERSE);
     mvwprintw(welcome_win, max_y/2 + 3, max_x/2 - title_len/2, "%s", title);
     wattroff(welcome_win, A_BOLD | A_REVERSE);
@@ -60,8 +57,8 @@ int main() {
     //* Delete welcome screen
     delwin(welcome_win);
 
-
-    // Create main window
+MAIN:
+    //* Create main window
     getmaxyx(stdscr, max_y, max_x);
     WINDOW* mainwin = newwin(max_y, max_x, 0, 0);
     box(mainwin, 0, 0);
@@ -83,7 +80,7 @@ int main() {
     wattron(mainwin, A_BOLD);
     mvwprintw(mainwin, max_y/2 -11, max_x/2 - ttl_len/2, "%s", ttl);
     wattron(mainwin, A_BOLD);
-
+    
     mvprintw(LINES-2, 2, "Press Q key to exit...");
 
     WINDOW* button_wins[NUMBUTTONS];
@@ -129,6 +126,12 @@ int main() {
                 } else if (current_button == 5) {
                     calculateAverage();
                 }
+                mvprintw(LINES-2, 2, "Press any key to continue...");
+                getch(); //* Wait for user input
+                clear(); //! Clear the screen
+                box(mainwin, 0, 0); //* Redraw main window border
+                wrefresh(mainwin); //* Refresh main window
+                goto MAIN; //* Go back to main loop
                 break;
             case 'q':
             case 'Q':
