@@ -15,5 +15,5 @@
 
 ## ⬇ Download
 
-* [🎨 For Designers](download/for-designers.md)
+* [🎨 For Users](download/for-users.md)
 * [🖥 For Developers](download/for-developers.md)

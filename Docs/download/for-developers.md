@@ -1,3 +1,7 @@
+---
+description: Download EtuManager as a developer (source code)
+---
+
 # 🖥 For Developers
 
 {% hint style="info" %}
