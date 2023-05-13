@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "headers/functions.h"
 #include <ncurses.h>
 #include <locale.h>
@@ -33,7 +34,7 @@ int main() {
     const char* btn = "Press Enter to Continue";
     int title_len = strlen(title);
     int btn_len = strlen(btn);
-    
+
     mvwprintw(welcome_win, max_y/2 - 11, max_x/2 - 45, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
     mvwprintw(welcome_win, max_y/2 - 10, max_x/2 - 45, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
     mvwprintw(welcome_win, max_y/2 - 9, max_x/2 - 45,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
@@ -59,7 +60,7 @@ int main() {
     // Delete welcome screen
     delwin(welcome_win);
 
-
+MAIN:
     // Create main window
     getmaxyx(stdscr, max_y, max_x);
     WINDOW* mainwin = newwin(max_y, max_x, 0, 0);
@@ -85,7 +86,6 @@ int main() {
     }
     wbkgd(button_wins[current_button], COLOR_PAIR(2));
     wrefresh(mainwin);
-
     // Main loop
     bool quit = false;
     while (!quit) {
@@ -106,7 +106,7 @@ int main() {
                 wrefresh(button_wins[current_button]);
                 break;
             case '\n':
-                clear();
+                
                 if (current_button == 0) {
                     addStudent();
                 } else if (current_button == 1) {
@@ -118,8 +118,14 @@ int main() {
                 } else if (current_button == 4) {
                     //delete_student();
                 } else if (current_button == 5) {
-                    //calculate_average();
+                    calculateAverage();
                 }
+                mvprintw(LINES-1, 0, "Press any key to continue...");
+                getch(); // Wait for user input
+                clear(); // Clear the screen
+                box(mainwin, 0, 0); // Redraw main window border
+                wrefresh(mainwin); // Refresh main window
+                goto MAIN; // Go back to main loop
                 break;
             case 'q':
             case 'Q':
