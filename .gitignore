@@ -2,6 +2,9 @@
 /output
 /database
 
+#C test files
+test*
+
 # Visual Studio Configurations
 .vscode
 
