@@ -7,7 +7,7 @@
 
 typedef struct {
     char nom_module[MAX_NAME_LEN];
-    float coefficient;
+    int coefficient;
     float note;
 } module;
 
