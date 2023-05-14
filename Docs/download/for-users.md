@@ -2,24 +2,30 @@
 description: Download EtuManagers for users (Binary build)
 ---
 
-# 🎨 For Users
+# 🙍 For Users
 
 {% hint style="info" %}
-**Good to know:** depending on the product you're building, it can be useful to explicitly document use cases. Got a product that can be used by a bunch of people in different ways? Maybe consider splitting it out!
+**Good to know:** Our project natively support the most known OS variants (Linux, Windows and MacOS)
 {% endhint %}
 
-## Figma Integrations
+## Download latest version
 
 {% tabs %}
-{% tab title="Installing" %}
-{% embed url="https://www.figma.com/community/plugin/950514102619019349/Automater" %}
+{% tab title="Windows OS" %}
+**Version 0.0.1:**
+
+{% embed url="https://github.com" %}
 {% endtab %}
 
-{% tab title="Configuring" %}
-Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+{% tab title="GNU/Linux" %}
+**Version 0.0.1:**
+
+{% embed url="https://github.com" %}
 {% endtab %}
 
-{% tab title="Customizing" %}
+{% tab title="MacOS (intel based)" %}
+**Version 0.0.1:**
 
+{% embed url="https://github.com" %}
 {% endtab %}
 {% endtabs %}
