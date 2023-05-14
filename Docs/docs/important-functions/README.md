@@ -1,4 +1,10 @@
-# 🛠 Getting set up
+---
+description: Code documentation mapping page
+---
+
+# 🛠 Important functions
+
+Our code is kinda large and it may be unreadable, so we made this documentation to make everything clear about the code
 
 <details>
 
