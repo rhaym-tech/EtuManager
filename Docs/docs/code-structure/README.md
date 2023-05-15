@@ -47,8 +47,7 @@ it supports 5 different types of inputs:
 * **avg**: to verify averages values to be always between 0 and 20.0
 * **age**: to verify age's value that shouldn't be greater than 150 years
 
-````c
-```cpp
+```c
 #include "includes.h" //? The file wchich includes all required libraries to work.
 
 
@@ -99,9 +98,7 @@ bool check(enum type Something, ...) {
 
   va_end(args);
 }
-
 ```
-````
 
 **functions.h:** contains the most important functions for work:
 
@@ -112,11 +109,8 @@ bool check(enum type Something, ...) {
 * **deleteStudent():** Delete a student from database
 * **calculateAverage():** Calculates student average and saves his average and modules data to his file.
 
-
-
 **includes.h:** a header file which contains all required libraries to use in our project, the point from making this is to not writing the same headers in each file
 
-````c
 ```c
 /*
     *Here we Put all required headers in one file :D
@@ -134,11 +128,9 @@ bool check(enum type Something, ...) {
 #include <stdarg.h> //? Variable arguments handling macros for function parameterization C Library.
 #include <ctype.h> //? Character classification and manipulation functions C Library.
 ```
-````
 
 **loader.h:** contains load() function to load data from files to program when it start's up
 
-````c
 ```c
 #include "includes.h" //? The file which includes all required libraries to work.
 #include "structures.h"
@@ -220,11 +212,9 @@ void load(const char* name, student *e) {
     fclose(file);
 }
 ```
-````
 
 **structures.h:** file contains the used structs in code
 
-````c
 ```c
 #define MAX_STUDENTS 100
 #define MAX_NAME_LEN 50
@@ -251,7 +241,6 @@ typedef struct {
     int nb_modules;
 } student;
 ```
-````
 
 </details>
 
@@ -261,12 +250,12 @@ typedef struct {
 
 Our project uses bensh of libraries to make it work perfuctly
 
-### Our Libraries
+#### Our Libraries
 
 * **stdio.h:** (Standard input/output) main library which contains the basic C functions.
 * **stdlib.h:** (Standard Library), which is a collection of functions and macros defined by the C programming language standard.
 * **String.h**: a base library which _defines one variable type, one macro, and various functions_ for manipulating arrays of characters.
-* **stdbool.h**: (Standard Boolean) _C_ Standard Library which contains four macros for a **Boolean** data type.&#x20;
+* **stdbool.h**: (Standard Boolean) _C_ Standard Library which contains four macros for a **Boolean** data type.
 * [**ncurses**](https://invisible-island.net/ncurses/)**:** (New Curses), **C/C++** Library provides an **API** (Application Programming Interface) to build **TUI** (Text-Based User Interfaces)
 * **locale.h:** C library which defines the location specific settings, such as date formats and currency symbols.
 * **sys/stat.h:** system library which defines **stat()** funcion which gets status information about a specified file and places it in the area of memory pointed to by the buf argument
@@ -283,12 +272,12 @@ Our project uses bensh of libraries to make it work perfuctly
 After structuring the whole project, including all required libraries and defining all used functions and structs, now we must keep only the important things in the main.c\
 Our main.c only contains the most important things
 
-1. including the required headers&#x20;
+1. including the required headers
 2. calling the main() function which it's only used to define our window UI and buttons
-3. setting up a keys listener to record keyboard clicks, we actually  have only 3 cases:\
-   &#x20;     **Key Up, Key Down:** to browse through the options.\
-   &#x20;     **Enter Key:** to confirm/access to an option.\
-   &#x20;     **Q key:** to quite the program.
+3. setting up a keys listener to record keyboard clicks, we actually have only 3 cases:\
+   **Key Up, Key Down:** to browse through the options.\
+   **Enter Key:** to confirm/access to an option.\
+   **Q key:** to quite the program.
 4. switch case to give each button it's function.
 
 More details about the main.c will be explained in the [next page](./#main.c)

@@ -9,8 +9,6 @@ description: the main project file
 Code always need to be clean and well structured
 {% endhint %}
 
-
-
 After structuring the whole project, including all required libraries and defining all used functions and structs, now we must keep only the important things in the main.c
 
 \
@@ -20,14 +18,12 @@ Our main.c only contains the most important things
 
 In the head file we include all the required headers, libraries and macros to use 'em in our project:
 
-````c
 ```c
 #include "headers/includes.h" //? The file wchich includes all required libraries to work.
 #include "headers/functions.h" //? Local library contains many functions for this project.
 
 #define NUMBUTTONS 6
 ```
-````
 
 ### main.c body:
 
@@ -145,10 +141,10 @@ MAIN:
 
 ### Part 2: Keys Listener
 
-setting up a keys listener to record keyboard clicks, we actually  have only 3 cases:\
-&#x20;     **Key Up, Key Down:** to browse through the options.\
-&#x20;     **Enter Key:** to confirm/access to an option.\
-&#x20;     **Q key:** to quite the program.
+setting up a keys listener to record keyboard clicks, we actually have only 3 cases:\
+**Key Up, Key Down:** to browse through the options.\
+**Enter Key:** to confirm/access to an option.\
+**Q key:** to quite the program.
 
 ```c
 //Part 2: Keys Listener
@@ -218,5 +214,4 @@ clear(); //! Clear the screen
 box(mainwin, 0, 0); //* Redraw main window border
 wrefresh(mainwin); //* Refresh main window
 goto MAIN; //* Go back to main loop
-```
 </code></pre>
