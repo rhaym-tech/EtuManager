@@ -114,11 +114,144 @@ bool check(enum type Something, ...) {
 
 
 
-includes.h:
+**includes.h:** a header file which contains all required libraries to use in our project, the point from making this is to not writing the same headers in each file
 
-loader.h:
+````c
+```c
+/*
+    *Here we Put all required headers in one file :D
+*/
 
-structures.h:
+//! C Libraries and main headers
+#include <stdio.h> //? Standard input/output C library.
+#include <stdlib.h> //? Standard C library.
+#include <string.h> //? Strings C Library.
+#include <stdbool.h> //? Booleans C Library.
+#include <ncurses.h> //? New Curses aka :"ncurses" C/C++ Library (used to make TUI programs).
+#include <locale.h> //? Unix-Like localization management C Library.
+#include <sys/stat.h> //? File status and information functions C Library.
+#include <dirent.h> //? Directory manipulation for file management operations C Library.
+#include <stdarg.h> //? Variable arguments handling macros for function parameterization C Library.
+#include <ctype.h> //? Character classification and manipulation functions C Library.
+```
+````
+
+**loader.h:** contains load() function to load data from files to program when it start's up
+
+````c
+```c
+#include "includes.h" //? The file which includes all required libraries to work.
+#include "structures.h"
+
+void load(const char* name, student *e) {
+    char filename[100];
+    sprintf(filename, "database/%s.txt", name);
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error opening the file.\n");
+        return;
+    }
+
+    char line[100];
+    char *token;
+    int moduleCount = 0;
+
+    while (fgets(line, sizeof(line), file) != NULL) {
+        if (strstr(line, "| ID:") != NULL) {
+            sscanf(line, "| ID: %lld", &(e->id));
+        }
+        else if (strstr(line, "| First Name:") != NULL) {
+            token = strtok(line, ":");
+            token = strtok(NULL, ":");
+            strcpy(e->nom, token+1);
+        }
+        else if (strstr(line, "| Last Name:") != NULL) {
+            token = strtok(line, ":");
+            token = strtok(NULL, ":");
+            strcpy(e->prenom, token+1);
+        }
+        else if (strstr(line, "| Address:") != NULL) {
+            token = strtok(line, ":");
+            token = strtok(NULL, ":");
+            strcpy(e->adresse, token+1);
+        }
+        else if (strstr(line, "| Email:") != NULL) {
+            token = strtok(line, ":");
+            token = strtok(NULL, ":");
+            strcpy(e->email, token+1);
+        }
+        else if (strstr(line, "| Age:") != NULL) {
+            sscanf(line, "| Age: %d", &(e->age));
+        }
+        else if (strstr(line, "|Total Modules:") != NULL) {
+            sscanf(line, "|Total Modules: %d", &(e->nb_modules));
+        }
+        else if (strstr(line, "|Moyenne:") != NULL) {
+            sscanf(line, "|Moyenne: %f", &(e->moyenne));
+        }
+        else if (strstr(line, "| Modules info:") != NULL) {
+            moduleCount = 0;
+
+            while (fgets(line, sizeof(line), file) != NULL) {
+                if (line[0] == '|') {
+                    module* m = &(e->modules[moduleCount]);
+
+                    fgets(line, sizeof(line), file); // Read module name line
+                    strtok(line, ":");
+                    strcpy(m->nom_module, strtok(NULL, ":"));
+
+                    fgets(line, sizeof(line), file); // Read coefficient line
+                    strtok(line, ":");
+                    sscanf(strtok(NULL, ":"), "%f", &(m->coefficient));
+
+                    fgets(line, sizeof(line), file); // Read note line
+                    strtok(line, ":");
+                    sscanf(strtok(NULL, ":"), "%f", &(m->note));
+
+                    moduleCount++;
+                }
+                else if (strstr(line, "|Total Modules:") != NULL) {
+                    sscanf(line, "|Total Modules: %d", &(e->nb_modules));
+                    break; // Exit the module information section
+                }
+            }
+        }
+    }
+    fclose(file);
+}
+```
+````
+
+**structures.h:** file contains the used structs in code
+
+````c
+```c
+#define MAX_STUDENTS 100
+#define MAX_NAME_LEN 50
+#define MAX_ADDRESS_LEN 100
+#define MAX_EMAIL_LEN 50
+#define MAX_MODULES 10
+
+
+typedef struct {
+    char nom_module[MAX_NAME_LEN];
+    int coefficient;
+    float note;
+} module;
+
+typedef struct {
+    long long int id;
+    char nom[MAX_NAME_LEN];
+    char prenom[MAX_NAME_LEN];
+    char adresse[MAX_ADDRESS_LEN];
+    char email[MAX_EMAIL_LEN];
+    int age;
+    float moyenne;
+    module modules[MAX_MODULES];
+    int nb_modules;
+} student;
+```
+````
 
 </details>
 
@@ -126,7 +259,20 @@ structures.h:
 
 <summary>Libraries used explained</summary>
 
+Our project uses bensh of libraries to make it work perfuctly
 
+### Our Libraries
+
+* **stdio.h:** (Standard input/output) main library which contains the basic C functions.
+* **stdlib.h:** (Standard Library), which is a collection of functions and macros defined by the C programming language standard.
+* **String.h**: a base library which _defines one variable type, one macro, and various functions_ for manipulating arrays of characters.
+* **stdbool.h**: (Standard Boolean) _C_ Standard Library which contains four macros for a **Boolean** data type.&#x20;
+* [**ncurses**](https://invisible-island.net/ncurses/)**:** (New Curses), **C/C++** Library provides an **API** (Application Programming Interface) to build **TUI** (Text-Based User Interfaces)
+* **locale.h:** C library which defines the location specific settings, such as date formats and currency symbols.
+* **sys/stat.h:** system library which defines **stat()** funcion which gets status information about a specified file and places it in the area of memory pointed to by the buf argument
+* **dirnet.h:** C Library that provides functions and structures for working with directories and directory entries. It is part of the **POSIX** standard and is commonly used on **Unix-like** operating systems, including **Linux**.
+* **stdarg.h:** (Standard Arguments Library) C standard library that allows functions to accept an indefinite number of arguments. It provides facilities for stepping through a list of function arguments of unknown number and type.
+* **ctype.h:** C character classification is an operation provided by a group of functions in the **ANSI C Standard Library.** These functions are used to test characters for membership in a particular class of characters, such as alphabetic characters, control characters, etc.
 
 </details>
 
@@ -134,6 +280,17 @@ structures.h:
 
 <summary>main.c</summary>
 
+After structuring the whole project, including all required libraries and defining all used functions and structs, now we must keep only the important things in the main.c\
+Our main.c only contains the most important things
 
+1. including the required headers&#x20;
+2. calling the main() function which it's only used to define our window UI and buttons
+3. setting up a keys listener to record keyboard clicks, we actually  have only 3 cases:\
+   &#x20;     **Key Up, Key Down:** to browse through the options.\
+   &#x20;     **Enter Key:** to confirm/access to an option.\
+   &#x20;     **Q key:** to quite the program.
+4. switch case to give each button it's function.
+
+More details about the main.c will be explained in the [next page](./#main.c)
 
 </details>

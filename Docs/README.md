@@ -41,14 +41,14 @@ This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhay
 
 Here we explain the full code
 
-{% content-ref url="docs/getting-started/" %}
-[getting-started](docs/getting-started/)
+{% content-ref url="docs/getting-started.md" %}
+[getting-started.md](docs/getting-started.md)
 {% endcontent-ref %}
 
-{% content-ref url="docs/getting-started/setting-permissions.md" %}
-[setting-permissions.md](docs/getting-started/setting-permissions.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="docs/getting-started/inviting-members.md" %}
-[inviting-members.md](docs/getting-started/inviting-members.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
