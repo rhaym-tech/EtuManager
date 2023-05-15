@@ -25,7 +25,7 @@ An awesome student management system that allows a school or university to track
 This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhaym**" and covered under **Apache License**, and I don't allow any one who don't have the permissions from me "**Rhaym**" to copy-and-past any part from this code because this is a personal work made for a scholar project
 {% endhint %}
 
-**Project License:** [Apache License 2.0](../LICENSE)
+**Project License:** [Apache License 2.0](../LICENSE/)
 
 ## Quick links
 
@@ -45,10 +45,14 @@ Here we explain the full code
 [getting-started.md](docs/getting-started.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="docs/code-structure/" %}
+[code-structure](docs/code-structure/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="docs/important-functions/" %}
+[important-functions](docs/important-functions/)
+{% endcontent-ref %}
+
+{% content-ref url="docs/data-storing-algortihm/" %}
+[data-storing-algortihm](docs/data-storing-algortihm/)
 {% endcontent-ref %}
