@@ -37,6 +37,29 @@ Our code is kinda large and it may be unreadable, so we made this documentation 
 
 <summary>headers</summary>
 
+#### **includes.h:**&#x20;
+
+a header file which contains all required libraries to use in our project, the point from making this is to not writing the same headers in each file
+
+```c
+/*
+    *Here we Put all required headers in one file :D
+*/
+
+//! C Libraries and main headers
+#include <stdio.h> //? Standard input/output C library.
+#include <stdlib.h> //? Standard C library.
+#include <string.h> //? Strings C Library.
+#include <stdbool.h> //? Booleans C Library.
+#include <ncurses.h> //? New Curses aka :"ncurses" C/C++ Library (used to make TUI programs).
+#include <locale.h> //? Unix-Like localization management C Library.
+#include <sys/stat.h> //? File status and information functions C Library.
+#include <dirent.h> //? Directory manipulation for file management operations C Library.
+#include <stdarg.h> //? Variable arguments handling macros for function parameterization C Library.
+#include <ctype.h> //? Character classification and manipulation functions C Library
+```
+
+\
 **checker.h:** contains the function which checks the input data validity\
 it supports 5 different types of inputs:
 
@@ -58,7 +81,7 @@ bool check(enum type Something, ...) {
   va_start(args, Something);
 
   char* str;
-  int num;
+  int num;code
   double moy;
   char *at;
   char *dot;
@@ -108,26 +131,6 @@ bool check(enum type Something, ...) {
 * **updateStudent():** Updates a saved student's data
 * **deleteStudent():** Delete a student from database
 * **calculateAverage():** Calculates student average and saves his average and modules data to his file.
-
-**includes.h:** a header file which contains all required libraries to use in our project, the point from making this is to not writing the same headers in each file
-
-```c
-/*
-    *Here we Put all required headers in one file :D
-*/
-
-//! C Libraries and main headers
-#include <stdio.h> //? Standard input/output C library.
-#include <stdlib.h> //? Standard C library.
-#include <string.h> //? Strings C Library.
-#include <stdbool.h> //? Booleans C Library.
-#include <ncurses.h> //? New Curses aka :"ncurses" C/C++ Library (used to make TUI programs).
-#include <locale.h> //? Unix-Like localization management C Library.
-#include <sys/stat.h> //? File status and information functions C Library.
-#include <dirent.h> //? Directory manipulation for file management operations C Library.
-#include <stdarg.h> //? Variable arguments handling macros for function parameterization C Library.
-#include <ctype.h> //? Character classification and manipulation functions C Library.
-```
 
 **loader.h:** contains load() function to load data from files to program when it start's up
 

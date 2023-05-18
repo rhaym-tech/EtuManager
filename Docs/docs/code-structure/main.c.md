@@ -2,7 +2,7 @@
 description: the main project file
 ---
 
-# 🧑 main.c
+# main.c
 
 {% hint style="info" %}
 **Pro tip:** Never put everything in the main.c or the main() funtion itself!\
