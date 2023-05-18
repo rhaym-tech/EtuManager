@@ -5,6 +5,7 @@
 
 int main() {
 
+    //PART 1: Windows and Buttons
     setlocale(LC_ALL, ""); //? Support Non-Ascii characters for most Unix-Like terminals (source: includes.h => locale.h)
 
     //* Initialize ncurses screen (Source: includes.h => ncurses.h)
@@ -26,13 +27,13 @@ int main() {
     refresh();
 
     //* Print welcome message and description
-    const char* title = " Welcome to Etudiants Management Program ";
+    const char* title = " Welcome to Students Management Program ";
     const char* btn = "Press Enter to Continue";
     int title_len = strlen(title);
     int btn_len = strlen(btn);
 
-    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 45, "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
-    mvwprintw(welcome_win, max_y/2 - 5, max_x/2 - 45, "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
+    mvwprintw(welcome_win, max_y/2 - 6, max_x/2 - 45,  "███████╗████████╗██╗   ██╗ ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗ \n");
+    mvwprintw(welcome_win, max_y/2 - 5, max_x/2 - 45,  "██╔════╝╚══██╔══╝██║   ██║ ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗\n");
     mvwprintw(welcome_win, max_y/2 - 4, max_x/2 - 45,  "█████╗     ██║   ██║   ██║ ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝\n");
     mvwprintw(welcome_win, max_y/2 - 3, max_x/2 - 45,  "██╔══╝     ██║   ██║   ██║ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗\n");
     mvwprintw(welcome_win, max_y/2 - 2, max_x/2 - 45,  "███████╗   ██║   ╚██████╔╝ ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║\n");
@@ -79,7 +80,7 @@ MAIN:
 
     wattron(mainwin, A_BOLD);
     mvwprintw(mainwin, max_y/2 -11, max_x/2 - ttl_len/2, "%s", ttl);
-    wattron(mainwin, A_BOLD);
+    wattroff(mainwin, A_BOLD);
     
     mvprintw(LINES-2, 2, "Press Q key to exit...");
 
@@ -92,6 +93,9 @@ MAIN:
     }
     wbkgd(button_wins[current_button], COLOR_PAIR(2));
     wrefresh(mainwin);
+
+    //Part 2: Keys Listener
+    
     // Main loop
     bool quit = false;
     while (!quit) {
@@ -112,17 +116,19 @@ MAIN:
                 wrefresh(button_wins[current_button]);
                 break;
             case '\n':
-                
+
+                //Part 3: Preforming Actions   
+
                 if (current_button == 0) {
                     addStudent();
                 } else if (current_button == 1) {
-                    //display_students();
+                    displayStudents();
                 } else if (current_button == 2) {
                     searchStudent();
                 } else if (current_button == 3) {
-                    //update_student();
+                    updateStudent();
                 } else if (current_button == 4) {
-                    //delete_student();
+                    deleteStudent();
                 } else if (current_button == 5) {
                     calculateAverage();
                 }
@@ -141,7 +147,7 @@ MAIN:
         }
     }
 
-    //* Cleaning up
+    //Part 4: Cleaning Up
     for (int i = 0; i < NUMBUTTONS; i++) {
         delwin(button_wins[i]);
     }
