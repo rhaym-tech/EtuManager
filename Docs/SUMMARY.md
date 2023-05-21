@@ -30,4 +30,5 @@
 ## ⬇ Download
 
 * [🙍 For Users](download/for-users.md)
-* [🧑💻 For Developers](download/for-developers.md)
+* [🧑💻 For Developers](download/for-developers/README.md)
+  * [📦 Prerequisites](download/for-developers/prerequisites.md)

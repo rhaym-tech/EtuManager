@@ -14,18 +14,18 @@ description: Download EtuManagers for users (Binary build)
 {% tab title="Windows OS" %}
 **Version 0.0.1:**
 
-{% embed url="https://github.com" %}
+**Coming soon...**
 {% endtab %}
 
 {% tab title="GNU/Linux" %}
 **Version 0.0.1:**
 
-{% embed url="https://github.com" %}
+**Coming soon...**
 {% endtab %}
 
 {% tab title="MacOS (intel based)" %}
 **Version 0.0.1:**
 
-{% embed url="https://github.com" %}
+**Coming soon...**
 {% endtab %}
 {% endtabs %}
