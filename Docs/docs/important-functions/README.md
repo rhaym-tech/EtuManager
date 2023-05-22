@@ -32,7 +32,7 @@ The data is read from the text files corresponding to each student.
 
 #### Docs:
 
-Check: [display-students.md](display-students.md "mention")
+Check: [find-student-function.md](../additional-functions/find-student-function.md "mention")
 
 </details>
 

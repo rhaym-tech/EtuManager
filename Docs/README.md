@@ -8,7 +8,7 @@ description: Students Management Program
 
 An awesome student management system that allows a school or university to track information about its students, such as their names, contact details, courses, grades, attendance, and other relevant data. The program must be able to read from and write to a file to store and retrieve student data.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Etumanager Welcome Screen</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Etumanager Welcome Screen</p></figcaption></figure>
 
 ## Credits
 

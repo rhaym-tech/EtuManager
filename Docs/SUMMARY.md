@@ -22,7 +22,7 @@
   * [Average Calculator](docs/important-functions/average-calculator.md)
 * [🛠 additional functions](docs/additional-functions/README.md)
   * [Input Checker Function](docs/additional-functions/input-checker.md)
-  * [Data Loader function](docs/additional-functions/data-loader.md)
+  * [Find Student Function](docs/additional-functions/find-student-function.md)
 * [🛠 Data storing algortihm](docs/data-storing-algortihm/README.md)
   * [📝 Setting permissions](docs/data-storing-algortihm/setting-permissions.md)
   * [🧑 Inviting Members](docs/data-storing-algortihm/inviting-members.md)
@@ -30,4 +30,5 @@
 ## ⬇ Download
 
 * [🙍 For Users](download/for-users.md)
-* [🧑💻 For Developers](download/for-developers.md)
+* [🧑💻 For Developers](download/for-developers/README.md)
+  * [📦 Prerequisites](download/for-developers/prerequisites.md)

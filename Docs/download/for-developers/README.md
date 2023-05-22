@@ -24,6 +24,18 @@ Make sure you have git installed on your machine, otherwice get it from here:\
 ```svg
 git clone https://github.com/rhaym-tech/EtuManager.git
 ```
+
+and to compile use this command:
+
+```
+gcc main.c -o main -lncursesw
+```
+
+{% hint style="warning" %}
+In order to compile EtuManager's Code, you need to have:\
+\- GCC (GNU Compilers Collection)\
+\-
+{% endhint %}
 {% endtab %}
 
 {% tab title="Previous versions" %}
