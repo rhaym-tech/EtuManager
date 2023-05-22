@@ -37,6 +37,10 @@ This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhay
 [our-features.md](overview/our-features.md)
 {% endcontent-ref %}
 
+{% content-ref url="download/for-developers/prerequisites.md" %}
+[prerequisites.md](download/for-developers/prerequisites.md)
+{% endcontent-ref %}
+
 ## Get Started with Docs
 
 Here we explain the full code
@@ -51,8 +55,4 @@ Here we explain the full code
 
 {% content-ref url="docs/important-functions/" %}
 [important-functions](docs/important-functions/)
-{% endcontent-ref %}
-
-{% content-ref url="docs/data-storing-algortihm/" %}
-[data-storing-algortihm](docs/data-storing-algortihm/)
 {% endcontent-ref %}

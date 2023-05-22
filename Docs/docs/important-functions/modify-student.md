@@ -22,7 +22,7 @@ int count = linesCount(file);
 
 ### 1.3 Parameters:
 
-* `file`: A pointer to a file object opened for reading.
+* **`file`**: A pointer to a file object opened for reading.
 
 ### 1.4 Return Value:
 

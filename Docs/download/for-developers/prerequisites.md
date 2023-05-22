@@ -4,7 +4,12 @@ description: All required softwares to compile and run the project
 
 # 📦 Prerequisites
 
-### GNU (GNU Compiler Collection):
+Our project is coded in C, and uses ncurses C library so prerequisites are:
+
+* GCC (GNU Compiler Collection): [#1.-gcc-gnu-compiler-collection](prerequisites.md#1.-gcc-gnu-compiler-collection "mention")
+* nurses (New Curses library): [#2.-ncurses-new-curses-library](prerequisites.md#2.-ncurses-new-curses-library "mention")
+
+### 1. GCC (GNU Compiler Collection):
 
 The **GNU Compiler Collection** is an optimizing compiler produced by the **GNU Project** supporting various programming languages, inclduing **C language**
 
@@ -31,7 +36,7 @@ Mark this following packages for installation:
 
 then click on "Installation -> Apply Changes":
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 Now confirm installation and wait until it finishs and click "Close"
 
@@ -102,5 +107,54 @@ To install **GCC (GNU Compiler Collection)** on **macOS**, you can use the packa
     ```
 
 That's it! **GCC** should now be installed on your **macOS** system using **Homebrew**.
+{% endtab %}
+{% endtabs %}
+
+### 2. ncurses (New Curses Library):
+
+{% tabs %}
+{% tab title="Windows" %}
+We suppose MinGW is already installed in the system, if it's not should go back to [#1.-gcc-gnu-compiler-collection](prerequisites.md#1.-gcc-gnu-compiler-collection "mention")
+
+1. Open MinGW Installation Manager.
+2. Look for the following packages and mark the checkbox:\
+   **a-** `mingw32-libncurses (dll)`\
+   **b-** `mingw32-libncurses (dev)`\
+   **c-** `mingw32-libpdcurses (dll)`\
+   **d-** `mingw32-libpdcurses (dev)`
+3. In the context menu click on **Installation** → **Apply Changes.**
+{% endtab %}
+
+{% tab title="GNU/Linux" %}
+In order to install GCC on Linux, you just need to run this command:
+
+| Distro                                                       |                                                             |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| <p><strong>Debian</strong> or<br><strong>Ubuntu</strong></p> | **`sudo apt-get install libncurses5-dev libncursesw5-dev`** |
+| **Arch Linux**                                               | **`sudo pacman -S ncurses`**                                |
+| **Fedora** or **Red Hat**                                    | **`sudo dnf install ncurses-devel`**                        |
+| **CentOS** or **RHEL**                                       | **`sudo yum install ncurses-devel`**                        |
+
+{% hint style="warning" %}
+Please note that the commands assume you have administrative privileges (sudo access) on your system. \
+If you encounter any issues, make sure your package manager is up to date and try again.
+{% endhint %}
+{% endtab %}
+
+{% tab title="MacOS" %}
+To install **ncurses (New Curses) library** on **macOS**, you can use the package manager **Homebrew**. Here's how to do it:
+
+1.  Install **Homebrew** if you haven't already. Open **Terminal** and run the following command:
+
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+2.  Install **GCC** by running the following command:
+
+    ```
+    brew install ncurses
+    ```
+
+That's it! **ncurses** should now be installed on your **macOS** system using **Homebrew**.
 {% endtab %}
 {% endtabs %}

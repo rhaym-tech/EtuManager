@@ -13,7 +13,3 @@ Our code is kinda large and it may be unreadable, so we made this documentation 
 {% content-ref url="important-functions/" %}
 [important-functions](important-functions/)
 {% endcontent-ref %}
-
-{% content-ref url="data-storing-algortihm/" %}
-[data-storing-algortihm](data-storing-algortihm/)
-{% endcontent-ref %}
