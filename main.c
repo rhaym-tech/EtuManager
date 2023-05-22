@@ -1,5 +1,4 @@
 #include "headers/includes.h" //? The file wchich includes all required libraries to work.
-#include "headers/functions.h" //? Local library contains many functions for this project.
 
 #define NUMBUTTONS 6
 

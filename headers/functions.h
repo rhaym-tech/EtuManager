@@ -31,11 +31,10 @@
         4.1: linesCount(): to Count file lines
         4.2: updateStudent: The responsible function of updating a student's states
 */
-
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 //* Including Required Libraries:
 #include "includes.h" //? The file wchich includes all required libraries to work.
-#include "checker.h" //? Defines a function to check input data.
-#include "loader.h" //? Defines a function to load data from files to it's variables.
 
 //* Defining the required macros to use:
 #define DATABASE_PATH "database/" // Path to the database directory
@@ -66,13 +65,13 @@ char* findStudent(char* nom, char* prenom) {
         if (tmp2 != NULL) {
             fclose(tmp2);
         }
-        char* result = malloc(strlen(option1) + 1); // Allocate memory for the result
-        strcpy(result, option1); // Copy option1 to result
+        char* result = malloc(strlen(option1) + 1); //* Allocate memory for the result
+        strcpy(result, option1); //* Copy option1 to result
         return result;
     } else if (tmp2 != NULL) {
         fclose(tmp2);
-        char* result = malloc(strlen(option2) + 1); // Allocate memory for the result
-        strcpy(result, option2); // Copy option2 to result
+        char* result = malloc(strlen(option2) + 1); //* Allocate memory for the result
+        strcpy(result, option2); //* Copy option2 to result
         return result;
     }
 
@@ -319,11 +318,11 @@ void searchStudent() {
     clear();
     char target[200];
     printw("Enter Student's name or lastname: ");
-    scanw(" %s  ", target);
+    scanw("%s", target);
     printw("\n\n");
     search_database(target);
     refresh();
-};
+}
 
 // *4: Delete Students:
 
@@ -390,6 +389,7 @@ void calculateAverage() {
     printw("Enter Student's last name: ");
     refresh();
     scanw("%s", lastName);
+    printw("\n");
 
     // Create file path using student name
     char *filePath = findStudent(firstName, lastName);
@@ -420,19 +420,19 @@ void calculateAverage() {
     fprintf(file, "\n| Modules info:\n\n");
     for (int i = 1; i <= etu.nb_modules; i++) {
 
-        printw("Enter module %d name: ", i);
+        printw("\nEnter module %d name: ", i);
         refresh();
         getstr(etu.modules->nom_module);
 
-        printw("Enter coefficient for module %d: ", i);
+        printw("\nEnter coefficient for module %d: ", i);
         refresh();
         scanw("%d", &etu.modules->coefficient);
-        clear();
 
-        printw("Enter note for module %d: ", i);
+        printw("\nEnter note for module %d: ", i);
         refresh();
         scanw("%f", &etu.modules->note);
-        clear();
+
+
         total += (etu.modules->coefficient * etu.modules->note);
         coefSum += etu.modules->coefficient;
         // Write module information to the file
@@ -559,3 +559,5 @@ void updateStudent() {
     }
     refresh();
 }
+
+#endif /* FUNCTIONS_H */

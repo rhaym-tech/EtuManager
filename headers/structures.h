@@ -1,3 +1,6 @@
+#ifndef STRUCTURES_H
+#define STRUCTURES_H
+
 #define MAX_STUDENTS 100
 #define MAX_NAME_LEN 50
 #define MAX_ADDRESS_LEN 100
@@ -22,3 +25,5 @@ typedef struct {
     module modules[MAX_MODULES];
     int nb_modules;
 } student;
+
+#endif /* STRUCTURES_H */

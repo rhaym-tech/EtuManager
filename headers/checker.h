@@ -1,3 +1,5 @@
+#ifndef CHECKER_H
+#define CHECKER_H
 #include "includes.h" //? The file wchich includes all required libraries to work.
 
 
@@ -48,3 +50,4 @@ bool check(enum type Something, ...) {
 
   va_end(args);
 }
+#endif /* CHECKER_H */
