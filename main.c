@@ -17,12 +17,12 @@ int main() {
     start_color();
     init_pair(1, COLOR_BLACK, COLOR_WHITE);
     init_pair(2, COLOR_BLACK, COLOR_GREEN);
+    init_pair(3, COLOR_BLACK, COLOR_RED);
 
     //* Create welcome window
     int max_y, max_x;
     getmaxyx(stdscr, max_y, max_x);
     WINDOW* welcome_win = newwin(max_y, max_x, 0, 0);
-    box(welcome_win, 0, 0);
     refresh();
 
     //* Print welcome message and description
@@ -46,6 +46,7 @@ int main() {
     wattroff(welcome_win, A_BOLD | A_BLINK);
 
     //* Refresh welcome screen
+    box(welcome_win, 0, 0);
     wrefresh(welcome_win);
 
     //* Wait for user input
@@ -104,14 +105,16 @@ MAIN:
                 wbkgd(button_wins[current_button], COLOR_PAIR(1));
                 wrefresh(button_wins[current_button]);
                 current_button = (current_button + 1) % NUMBUTTONS;
-                wbkgd(button_wins[current_button], COLOR_PAIR(2));
+                if(current_button == 4) wbkgd(button_wins[current_button], COLOR_PAIR(3));
+                else wbkgd(button_wins[current_button], COLOR_PAIR(2));
                 wrefresh(button_wins[current_button]);
                 break;
             case KEY_UP:
                 wbkgd(button_wins[current_button], COLOR_PAIR(1));
                 wrefresh(button_wins[current_button]);
                 current_button = (current_button - 1 + NUMBUTTONS) % NUMBUTTONS;
-                wbkgd(button_wins[current_button], COLOR_PAIR(2));
+                if(current_button == 4) wbkgd(button_wins[current_button], COLOR_PAIR(3));
+                else wbkgd(button_wins[current_button], COLOR_PAIR(2));
                 wrefresh(button_wins[current_button]);
                 break;
             case '\n':

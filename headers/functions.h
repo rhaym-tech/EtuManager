@@ -253,7 +253,7 @@ void displayStudents() {
                 fileCount++;
             }
         }
-
+        box(win, 0, 0);
         wrefresh(win);
 
         ch = getch();
