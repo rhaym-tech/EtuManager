@@ -17,16 +17,6 @@ The student management system must have a menu-based user interface that allows 
 
 This program is licensed and copyrighted to **Ghellab Abderrahmane** aka "**Rhaym**" and covered under **Apache License**, and I don't allow any one who don't have the permissions from me "**Rhaym**" to copy-and-past any part from this code because this is a personal work made for a scholar project
 
-Permissions levels:
 
- - **Teachers:** those are allowed to view/copy the code and rate it since it's a project.
-- **L1 Students:** those are totally not allowed from copying the code, the only thing they can do viewing the code to take a general idea about the project structure.
-- **non L1 Informatic students:** the are allowed to copy the code but not without credits.
 
-This license article is valid until **31/05/2023**
-
-Copying the code before that day may cause you many problems depends on who you are:
-
--   **L1 Students:** Those will take a serious report from project manager teacher and since copying is against Project rules so you may get excuded
-
--   **non L1 Informatic students:** Copying the code without credit will result in legal prosecutions (I won't hesitate to raise a C&D against you)
+- Copying the code without credit will result in legal prosecutions (I won't hesitate to raise a C&D against you)
